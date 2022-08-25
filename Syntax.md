@@ -101,3 +101,32 @@ SELECT
 UPDATE Salary SET sex =
 (CASE WHEN sex = 'm' THEN 'f' ELSE 'm' END);
 ```
+
+## Join and Select where column is null
+
+```
+SELECT
+	customer_id,
+	COUNT(Visits.visit_id) AS count_no_trans
+FROM
+	visits
+LEFT JOIN Transactions
+	ON Visits.visit_id = Transactions.visit_id
+WHERE
+	Transactions.visit_id IS NULL
+GROUP BY customer_id
+```
+
+# Window Functions
+
+## Lag
+
+```
+SELECT DISTINCT(w.id)
+FROM (SELECT *,
+LAG(recordDate,1) OVER (ORDER BY recordDate)  as prevDate,
+LAG(temperature,1) OVER (ORDER BY recordDate) as prevTemp
+FROM Weather) w
+WHERE w.temperature > w.prevTemp
+AND DATEDIFF(w.recordDate,w.prevDate) = 1
+```
