@@ -10,6 +10,34 @@ For string methods, like `where`, you can use a tuple:
 WHERE skill IN ('Python', 'Java')
 ```
 
+### CTE
+Can cache results of a query for later use. Useful for complex queries that are used multiple times.
+```
+
+```
+WITH jobs_grouped AS (
+-- Insert above query here
+SELECT 
+  company_id, 
+  title, 
+  description, 
+  COUNT(job_id) AS job_count
+FROM job_listings
+GROUP BY 
+  company_id, 
+  title, 
+  description;
+
+)
+
+```
+SELECT COUNT(DISTINCT company_id) AS co_w_duplicate_jobs
+FROM jobs_grouped
+WHERE job_count > 1;
+```
+
+```
+
 ## Functions
 
 ```
@@ -20,7 +48,7 @@ CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 
 ### Exists / Not Exists
 
-Corerlated subquery, condition in the middle subquery
+Corerlated subquery, condition in the nested subquery
 
 ```
 SELECT  l.*
