@@ -10,6 +10,8 @@ For string methods, like `where`, you can use a tuple:
 WHERE skill IN ('Python', 'Java')
 ```
 
+]
+
 Round numbers in digits by dividing by the whole digit then round to 0.
 For example, to convert numbers to millions:
 
