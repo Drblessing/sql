@@ -1,4 +1,4 @@
-```
+```sql
 SELECT page_id
 FROM pages
 WHERE NOT EXISTS (SELECT NULL FROM page_likes WHERE page_likes.page_id = pages.page_id)
@@ -6,7 +6,8 @@ ORDER BY page_id;
 ```
 
 Solution 2: Left Outer Join
-```
+
+```sql
 SELECT pages.page_id
 FROM pages
 LEFT OUTER JOIN page_likes AS likes
@@ -16,7 +17,7 @@ WHERE likes.page_id IS NULL;
 
 Solution 3: Using EXCEPT
 
-```
+```sql
 SELECT page_id
 FROM pages
 EXCEPT
