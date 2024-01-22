@@ -25,3 +25,14 @@ SELECT page_id
 FROM page_likes
 ORDER BY page_id;
 ```
+
+Solution 4: Using NOT IN
+
+```sql
+select page_id
+from pages
+where page_id not in (
+select page_id
+from page_likes)
+order by page_id
+```
