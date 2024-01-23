@@ -1,9 +1,9 @@
-Solution: DATE_PART
+Solution: between and date casting
 
-```
-SELECT user_id, MAX(post_date::DATE) - MIN(post_date::DATE) as days_between
-FROM posts
-WHERE DATE_PART('year',post_date) = 2021
-GROUP BY user_id
-HAVING COUNT(post_id) > 1
+```sql
+select user_id, max(post_date::date) - min(post_date::date) as days_between
+from posts
+where post_date between '2021-01-01' and '2021-12-31'
+group by user_id
+having count(post_id) > 1
 ```
