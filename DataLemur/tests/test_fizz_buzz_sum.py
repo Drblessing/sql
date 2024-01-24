@@ -1,5 +1,5 @@
 import pytest
-from Fizz_Buzz_Sum import fizz_buzz_sum  # Assuming your file is named Fizz_Buzz_Sum.py
+from fizz_buzz_sum import fizz_buzz_sum
 
 
 def test_fizz_buzz_sum():
