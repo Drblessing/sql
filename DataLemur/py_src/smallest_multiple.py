@@ -27,6 +27,8 @@ def smallest_multiple(target: int) -> int:
         if is_lcm:
             return i
 
+    return 1
+
 
 def smallest_multiple_fast(target: int) -> int:
     return math.lcm(*range(1, target + 1))
@@ -35,12 +37,12 @@ def smallest_multiple_fast(target: int) -> int:
 if __name__ == "__main__":
     # Time the function
     start = time.perf_counter()
-    smallest_multiple(17)
+    smallest_multiple(20)
     end = time.perf_counter()
     slow_time = end - start
     print(f"Slow time: {slow_time:0.6f} seconds")
     start = time.perf_counter()
-    smallest_multiple_fast(17)
+    smallest_multiple_fast(20)
     end = time.perf_counter()
     fast_time = end - start
     print(f"Fast time: {fast_time:0.6f} seconds")
