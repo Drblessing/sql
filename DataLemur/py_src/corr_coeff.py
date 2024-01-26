@@ -16,5 +16,8 @@ def corr(x: list[int | float], y: list[int | float]) -> float:
     if x_std == 0 or y_std == 0:
         return 0
     return sum((x[i] - x_mean) * (y[i] - y_mean) for i in range(n)) / (
-        n * x_std * y_std
+        (n) * x_std * y_std
     )
+
+
+print(corr([1, 3, 5, 7], [2, 4, 6, 8]))
